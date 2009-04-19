@@ -1,7 +1,7 @@
 #include "PluginManager.h"
 
 #include "IPlugin.h"
-#include "CoreDumpDialog.h"
+#include "dialogs/CoreDumpDialog.h"
 
 #include <QApplication>
 #include <QPluginLoader>
@@ -66,7 +66,7 @@ int PluginManager::initialize()
 	}
 
 	correctLoadOrder();
-
+	registerPlugins();
 	return 0;
 }
 

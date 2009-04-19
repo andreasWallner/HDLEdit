@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = LogWindow
-INCLUDEPATH += ./../../
+INCLUDEPATH += ./../
 CONFIG += plugin
 SOURCES += LogWindow.cpp
-DESTDIR = ../../core/plugins
+DESTDIR = ../../bin/plugins
 HEADERS += LogWindow.h

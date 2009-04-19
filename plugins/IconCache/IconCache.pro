@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = IconCache
-INCLUDEPATH += ./../../
+INCLUDEPATH += ./../
 CONFIG += plugin
 SOURCES += IconCache.cpp
-DESTDIR = ../../core/plugins
+DESTDIR = ../../bin/plugins
 HEADERS += IconCache.h

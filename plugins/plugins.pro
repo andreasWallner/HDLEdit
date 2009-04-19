@@ -1,6 +1,7 @@
 TEMPLATE = subdirs
-SUBDIRS = AppSettings \
+SUBDIRS = core \
+        AppSettings \
 	IconCache \
 	LogWindow \
 	ProjectManager \
-	TextEdit
+	VHDLEditor

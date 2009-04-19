@@ -1,0 +1,7 @@
+debug
+release
+Makefile
+Makefile.Release
+Makefile.Debug
+*_resource.rc
+*.pro.user

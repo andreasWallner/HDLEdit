@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = TextEdit
-INCLUDEPATH += ./../../
+INCLUDEPATH += ./../
 CONFIG += plugin
 SOURCES += VHDLEditor.cpp
-DESTDIR = ../../core/plugins
+DESTDIR = ../../bin/plugins
 HEADERS += VHDLEditor.h

@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = AppSettings
+DESTDIR = ./../../bin/plugins
 CONFIG += plugin
-INCLUDEPATH += ./../../
+INCLUDEPATH += ./../
 SOURCES += AppSettings.cpp
 HEADERS += AppSettings.h
-DESTDIR = ../../core/plugins

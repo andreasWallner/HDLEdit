@@ -1,7 +1,7 @@
 TEMPLATE = lib
 TARGET = ProjectManager
-INCLUDEPATH += ./../../
+INCLUDEPATH += ./../
 CONFIG += plugin
 SOURCES += ProjectManager.cpp
-DESTDIR = ../../core/plugins
+DESTDIR = ../../bin/plugins
 HEADERS += ProjectManager.h

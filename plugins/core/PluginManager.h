@@ -13,8 +13,9 @@ class ISettingsEditor;
 class IProjectManager;
 
 // TODO check for circular deps
+// TODO intelligently seach plugin folder
 
-class /*CORE_EXPORT*/ PluginManager : public QObject
+class CORE_EXPORT PluginManager : public QObject
 {
 public:
 	PluginManager();

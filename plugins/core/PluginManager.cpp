@@ -97,7 +97,6 @@ void PluginManager::registerProjectManager( IProjectManager* manager)
 
 void PluginManager::loadLibraries() {
 	QDir pluginDir(qApp->applicationDirPath());
-	pluginDir.cdUp();
 	pluginDir.cd("plugins");
 
 	foreach( QString fileName, pluginDir.entryList(QDir::Files))

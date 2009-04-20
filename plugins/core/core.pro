@@ -3,7 +3,10 @@ TARGET = core
 INCLUDEPATH += ./../
 DEFINES = CORE_LIBRARY
 SOURCES += PluginManager.cpp \
-    dialogs/CoreDumpDialog.cpp
+    dialogs/CoreDumpDialog.cpp \
+    IconProvider.cpp \
+    dialogs/LogWindow.cpp \
+    MimeDatabase.cpp
 HEADERS += PluginManager.h \
     IIconFactory.h \
     ILogger.h \
@@ -12,6 +15,10 @@ HEADERS += PluginManager.h \
     IProjectManager.h \
     ISettingsEditor.h \
     PluginGlobal.h \
-    dialogs/CoreDumpDialog.h
+    dialogs/CoreDumpDialog.h \
+    IconProvider.h \
+    dialogs/LogWindow.h \
+    MimeDatabase.h
 DESTDIR = ../../bin/plugins
-FORMS += dialogs/CoreDumpDialog.ui
+FORMS += dialogs/CoreDumpDialog.ui \
+    dialogs/LogWindow.ui

@@ -8,4 +8,3 @@ CONFIG += qt \
     warn_on \
     release
 LIBS *= -lcore -L./../bin/plugins
-

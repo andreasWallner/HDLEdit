@@ -3,5 +3,8 @@ release
 Makefile
 Makefile.Release
 Makefile.Debug
-*_resource.rc
+ui_*
+moc_*
+*.o
 *.pro.user
+*_resource.rc

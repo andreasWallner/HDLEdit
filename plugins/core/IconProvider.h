@@ -2,15 +2,15 @@
 #define ICONPROVIDER_H
 
 #include "PluginGlobal.h"
-#include <QObject.h>
+#include <QObject>
 
 class QIcon;
 
 class CORE_EXPORT IconProvider : public QObject
 {
 public:
-		IconProvider();
-		const QIcon getIcon( QString identifier);
+	IconProvider();
+	QIcon getIcon( const QString& identifier);
 };
 
 #endif // ICONPROVIDER_H

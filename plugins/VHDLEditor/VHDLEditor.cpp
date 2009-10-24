@@ -12,6 +12,11 @@ QString VHDLEditor::name() const
 	return "VHDL Text Editor";
 }
 
+QString VHDLEditor::description() const
+{
+	return "I am a VHDL test editor.";
+}
+
 QString VHDLEditor::version() const
 {
 	return "0.1";

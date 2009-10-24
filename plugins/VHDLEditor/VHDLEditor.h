@@ -8,10 +8,12 @@ class VHDLEditor : public QObject, public IPlugin
 {
 	Q_OBJECT
 	Q_INTERFACES(IPlugin)
+
 public:
 	VHDLEditor();
 
 	virtual QString name() const;
+	virtual QString description() const;
 	virtual QString version() const;
 	virtual QString provides() const;
 	virtual QStringList depends() const;

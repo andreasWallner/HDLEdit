@@ -6,9 +6,15 @@
 ProjectManager::ProjectManager()
 {
 }
+
 QString ProjectManager::name() const
 {
 	return "Project Manager";
+}
+
+QString ProjectManager::description() const
+{
+	return "I am a projectmanager.";
 }
 
 QString ProjectManager::version() const

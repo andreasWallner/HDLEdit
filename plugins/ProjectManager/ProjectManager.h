@@ -8,10 +8,12 @@ class ProjectManager : public QObject, public IProjectManager
 {
 	Q_OBJECT
 	Q_INTERFACES(IPlugin IProjectManager)
+
 public:
 	ProjectManager();
 
 	virtual QString name() const;
+	virtual QString description() const;
 	virtual QString version() const;
 	virtual QString provides() const;
 	virtual QStringList depends() const;

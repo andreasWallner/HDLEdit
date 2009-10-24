@@ -5,10 +5,10 @@
 
 #include <QObject>
 
+class Logger;
 class IPlugin;
 class IIconFactory;
 class IMimeTypeManager;
-class ILogger;
 class ISettingsEditor;
 class IProjectManager;
 
@@ -25,16 +25,19 @@ public:
 
 	void registerIconFactory( IIconFactory* factory);
 	void registerMimeTypeManager( IMimeTypeManager* manager);
-	void registerLogger( ILogger* logger);
 	void registerSettingsEditor( ISettingsEditor* editor);
 	void registerProjectManager( IProjectManager* manager);
 
+	// static services
+//	Logger* getLogger();
+
+	// dynamic services
 	IIconFactory* getIconFactory();
 	IMimeTypeManager* getMimeTypeManager();
-	ILogger* getLogger();
 	ISettingsEditor* getSettingsEditor();
 	IProjectManager* getProjectManager();
-protected:
+
+private:
 	void loadLibraries();
 	QStringList checkBaseServices();
 	QStringList checkDependencies();
@@ -45,7 +48,7 @@ protected:
 
 	IIconFactory* m_iconFactory;
 	IMimeTypeManager* m_mimeTypeManager;
-	ILogger* m_logger;
+	//Logger* m_logger;
 	ISettingsEditor* m_settingsEditor;
 	IProjectManager* m_projectManager;
 };

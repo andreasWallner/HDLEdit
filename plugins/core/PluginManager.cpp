@@ -10,10 +10,10 @@
 
 #include <QtDebug>
 
-const int baseServicesCount = 2;
-const char* baseServices[] = { "base/settingseditor",
-                               "base/projectmanager"/*,
-                               "base/mimetypemanager" */};
+// TODO get rid of count
+static const int baseServicesCount = 2;
+static const char* baseServices[] = { "base/settingsengine",
+                                      "base/projectmanager" };
 
 PluginManager::PluginManager()
 {
@@ -77,10 +77,10 @@ void PluginManager::registerMimeTypeManager( IMimeTypeManager* manager)
 
 }
 
-void PluginManager::registerLogger( ILogger* logger)
+/*void PluginManager::registerLogger( ILogger* logger)
 {
 
-}
+}*/
 
 void PluginManager::registerSettingsEditor( ISettingsEditor* editor)
 {
@@ -104,9 +104,7 @@ void PluginManager::loadLibraries()
 		if (plugin)
 		{
 			IPlugin* casted = qobject_cast<IPlugin *>(plugin);
-			if( casted) {
-				m_loadedPlugins << casted;
-			}
+			if(casted) m_loadedPlugins << casted;
 		}
 	}
 }
@@ -122,7 +120,7 @@ QStringList PluginManager::checkBaseServices()
 		provided << plugin->provides();
 
 	QStringList notProvided;
-	foreach( QString dep, needed)
+	foreach( const QString& dep, needed)
 	{
 		if( provided.indexOf(dep) == -1)
 			notProvided << dep;
@@ -140,7 +138,7 @@ QStringList PluginManager::checkDependencies()
 	foreach( IPlugin* plugin, m_loadedPlugins)
 	{
 		QStringList needs = plugin->depends();
-		foreach( QString need, needs)
+		foreach( const QString& need, needs)
 		{
 			if( provided.indexOf(need) == -1)
 				missing << need;
@@ -155,21 +153,22 @@ void PluginManager::correctLoadOrder()
 
 	do
 	{
-		madeChanges = false;
 		for( int i = 0; i < m_loadedPlugins.size(); ++i)
 		{
 			QStringList needed = m_loadedPlugins.at(i)->depends();
-			if( needed.size() == 0)
-				continue;
+			if( needed.size() == 0) continue;
+
 			QStringList covered;
 			for( int j = 0; j < m_loadedPlugins.size(); ++j)
 			{
 				if( needed.indexOf(m_loadedPlugins.at(j)->provides()) != -1
-						&& covered.indexOf(m_loadedPlugins.at(j)->provides()) == -1) // it is needed and not covered
+				 && covered.indexOf(m_loadedPlugins.at(j)->provides()) == -1) // it is needed and not covered
 					covered << m_loadedPlugins.at(j)->provides();
+
 				if( covered.size() == needed.size())
 				{
-					if( i < j) {
+					if( i < j)
+					{
 						m_loadedPlugins.move( i, j);
 						madeChanges = true;
 					}

@@ -1,32 +1,37 @@
 #ifndef LowWindow_h_
 #define LowWindow_h_
 
+#include "./../PluginGlobal.h"
+
 #include <QtGui/QDialog>
-#include "PluginGlobal.h"
 #include <QString>
 #include <QMap>
 
-namespace Ui {
-    class LogWindow;
-}
+namespace Ui { class LogWindow; }
 
 class QTextEdit;
 
-class CORE_EXPORT LogWindow : public QDialog {
-    Q_OBJECT
-    Q_DISABLE_COPY(LogWindow)
+class CORE_EXPORT LogWindow : public QDialog
+{
+	Q_OBJECT
+	Q_DISABLE_COPY(LogWindow)
+
 public:
-    explicit LogWindow(QWidget *parent = 0);
-    virtual ~LogWindow();
+	LogWindow( QWidget* parent = 0);
+	~LogWindow();
+
 public slots:
-		void addLogContent( QString window, QString message);
-		void addLogLine( QString window, QString message);
-protected:
-    virtual void changeEvent(QEvent *e);
+	void addLogContent( const QString& window, const QString& message);
+	void addLogLine( const QString& window, const QString& message);
+	void clearAllTabs();
+
+private slots:
+	void on_tabWidget_tabCloseRequested( int index);
+	void changeEvent( QEvent* e);
 
 private:
-		QMap< QString, QTextEdit*> m_tabs;
-    Ui::LogWindow *m_ui;
+	QMap< QString, QTextEdit*> m_tabs;
+	Ui::LogWindow* p_ui;
 };
 
 #endif // LowWindow_h_

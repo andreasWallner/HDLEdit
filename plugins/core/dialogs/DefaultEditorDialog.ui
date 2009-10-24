@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DefaultEditorDialog</class>
+ <widget class="QDialog" name="DefaultEditorDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>338</width>
+    <height>113</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Default Editor</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="introTextLabel">
+     <property name="text">
+      <string>Please choose your default Editor for MimeType Files</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QComboBox" name="editorCombo"/>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="setAsDefaultCheck">
+     <property name="text">
+      <string>Set as default</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

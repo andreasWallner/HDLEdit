@@ -30,7 +30,7 @@ QString AppSettings::provides() const
 QStringList AppSettings::depends() const
 {
 	QStringList list;
-	list << "base/iconmanager";
+	//list << "";
 	return list;
 }
 

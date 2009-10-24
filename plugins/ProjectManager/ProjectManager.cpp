@@ -24,7 +24,7 @@ QString ProjectManager::provides() const
 QStringList ProjectManager::depends() const
 {
 	QStringList list;
-	list << "base/iconmanager" << "base/logger" << "base/settingseditor";
+	list << "base/settingseditor";
 	return list;
 }
 

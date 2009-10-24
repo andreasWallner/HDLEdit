@@ -1,5 +1,4 @@
 #include "PluginManager.h"
-
 #include "IPlugin.h"
 #include "dialogs/CoreDumpDialog.h"
 
@@ -11,12 +10,10 @@
 
 #include <QtDebug>
 
-const int baseServicesCount = 4;//5;
+const int baseServicesCount = 2;
 const char* baseServices[] = { "base/settingseditor",
-															 "base/iconmanager",
-															 "base/logger",
-															 "base/projectmanager"/*,
-															 "base/mimetypemanager" */};
+                               "base/projectmanager"/*,
+                               "base/mimetypemanager" */};
 
 PluginManager::PluginManager()
 {
@@ -40,7 +37,7 @@ int PluginManager::initialize()
 		dump.setLabel(tr("Failed loading base services"));
 
 		QString msg;
-		msg = "<b>Missing services:</b><br /><br />";
+		msg = "<b>" + tr("Missing services:") + "</b><br /><br />";
 		foreach( QString str, failed)
 			msg += str + "<br />";
 		dump.setTextBox(msg);
@@ -56,7 +53,7 @@ int PluginManager::initialize()
 		dump.setLabel(tr("Program could not be started"));
 
 		QString msg;
-		msg = "<b>Unsatisfied dependencies:</b><br /><br />";
+		msg = "<b>" + tr("Unsatisfied dependencies:") + "</b><br /><br />";
 		foreach( QString str, failed)
 			msg += str + "<br />";
 		dump.setTextBox(msg);
@@ -95,7 +92,8 @@ void PluginManager::registerProjectManager( IProjectManager* manager)
 
 }
 
-void PluginManager::loadLibraries() {
+void PluginManager::loadLibraries()
+{
 	QDir pluginDir(qApp->applicationDirPath());
 	pluginDir.cd("plugins");
 
@@ -182,7 +180,8 @@ void PluginManager::correctLoadOrder()
 	} while(madeChanges);
 }
 
-void PluginManager::registerPlugins() {
+void PluginManager::registerPlugins()
+{
 	foreach( IPlugin* plugin, m_loadedPlugins)
 		plugin->registerPlugin(this);
 }

@@ -25,7 +25,7 @@ QString VHDLEditor::provides() const
 QStringList VHDLEditor::depends() const
 {
 	QStringList list;
-	list << "base/iconmanager" << "base/projectmanager";
+	list << "base/projectmanager";
 	return list;
 }
 

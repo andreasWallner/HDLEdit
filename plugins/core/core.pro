@@ -1,12 +1,9 @@
 TEMPLATE = lib
 TARGET = core
+DESTDIR = ../../bin/plugins
 INCLUDEPATH += ./../
 DEFINES = CORE_LIBRARY
-SOURCES += PluginManager.cpp \
-    dialogs/CoreDumpDialog.cpp \
-    IconProvider.cpp \
-    dialogs/LogWindow.cpp \
-    MimeDatabase.cpp
+
 HEADERS += PluginManager.h \
     IIconFactory.h \
     ILogger.h \
@@ -19,6 +16,12 @@ HEADERS += PluginManager.h \
     IconProvider.h \
     dialogs/LogWindow.h \
     MimeDatabase.h
-DESTDIR = ../../bin/plugins
+
+SOURCES += PluginManager.cpp \
+    IconProvider.cpp \
+    MimeDatabase.cpp \
+    dialogs/LogWindow.cpp \
+    dialogs/CoreDumpDialog.cpp
+
 FORMS += dialogs/CoreDumpDialog.ui \
     dialogs/LogWindow.ui

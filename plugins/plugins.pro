@@ -1,5 +1,5 @@
 TEMPLATE = subdirs
 SUBDIRS = core \
-        AppSettings \
+	AppSettings \
 	ProjectManager \
 	VHDLEditor

@@ -13,6 +13,7 @@ public:
 	virtual ~IPlugin() {}
 
 	virtual QString name() const = 0;
+	virtual QString description() const = 0;
 	virtual QString version() const = 0;
 	virtual QString provides() const = 0;
 	virtual QStringList depends() const = 0;

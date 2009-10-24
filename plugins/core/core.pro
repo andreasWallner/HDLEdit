@@ -12,6 +12,7 @@ HEADERS += PluginGlobal.h \
 	IconProvider.h \
 	PluginManager.h \
 	MimeDatabase.h \
+	SettingsEditor.h \
 	dialogs/LogWindow.h \
 	dialogs/CoreDumpDialog.h \
 	dialogs/DefaultEditorDialog.h

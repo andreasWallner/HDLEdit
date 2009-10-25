@@ -1,5 +1,5 @@
-#ifndef ICONPROVIDER_H
-#define ICONPROVIDER_H
+#ifndef core_IconProvider_h_
+#define core_IconProvider_h_
 
 #include "PluginGlobal.h"
 #include <QObject>
@@ -13,4 +13,4 @@ public:
 	QIcon getIcon( const QString& identifier);
 };
 
-#endif // ICONPROVIDER_H
+#endif // core_IconProvider_h_

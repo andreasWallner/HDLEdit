@@ -1,5 +1,5 @@
-#ifndef LowWindow_h_
-#define LowWindow_h_
+#ifndef core_LowWindow_h_
+#define core_LowWindow_h_
 
 #include "./../PluginGlobal.h"
 
@@ -34,4 +34,4 @@ private:
 	Ui::LogWindow* p_ui;
 };
 
-#endif // LowWindow_h_
+#endif // core_LowWindow_h_

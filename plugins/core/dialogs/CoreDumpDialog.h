@@ -1,5 +1,5 @@
-#ifndef COREDUMPDIALOG_H
-#define COREDUMPDIALOG_H
+#ifndef CoreDumpDialog_h_
+#define CoreDumpDialog_h_
 
 #include <QtGui/QDialog>
 
@@ -24,4 +24,4 @@ private:
     Ui::CoreDumpDialog* p_ui;
 };
 
-#endif // COREDUMPDIALOG_H
+#endif // CoreDumpDialog_h_

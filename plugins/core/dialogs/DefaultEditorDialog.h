@@ -1,5 +1,5 @@
-#ifndef DEFAULTEDITORDIALOG_H
-#define DEFAULTEDITORDIALOG_H
+#ifndef DefaultEditorDialog_h_
+#define DefaultEditorDialog_h_
 
 #include <QtGui/QDialog>
 
@@ -25,4 +25,4 @@ private:
 	Ui::DefaultEditorDialog* p_ui;
 };
 
-#endif // DEFAULTEDITORDIALOG_H
+#endif // DefaultEditorDialog_h_

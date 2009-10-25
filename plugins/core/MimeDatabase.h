@@ -1,5 +1,5 @@
-#ifndef MIMEDATABASE_H
-#define MIMEDATABASE_H
+#ifndef core_MimeDatabase_h_
+#define core_MimeDatabase_h_
 
 #include "PluginGlobal.h"
 
@@ -35,4 +35,4 @@ private:
 	QMultiMap< QString, MimeEntry> m_mimetypes;
 };
 
-#endif // MIMEDATABASE_H
+#endif // core_MimeDatabase_h_

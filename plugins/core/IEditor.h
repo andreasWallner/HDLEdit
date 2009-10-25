@@ -1,5 +1,5 @@
-#ifndef IEditor_h_
-#define IEditor_h_
+#ifndef core_IEditor_h_
+#define core_IEditor_h_
 
 #include "IPlugin.h"
 
@@ -40,9 +40,12 @@ public:
 	virtual bool wasFunctionalModified( const QString& oldFile, const QString& newFile) = 0;
 	virtual HDL getHDL( const QString& file) = 0;
 	//virtual HDLInterface getInterface( const QString& file);
+	// hierarchy browsing functions?
+	// makefile generation functions?
+	// information to build intellisense database?
 
 };
 
 Q_DECLARE_INTERFACE( IEditor, "com.HDLEdit.Editor/1.0");
 
-#endif // IEditor_h_
+#endif // core_IEditor_h_

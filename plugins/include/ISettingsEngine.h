@@ -4,7 +4,7 @@
 #include "IPlugin.h"
 
 //! SettingsEngines load/safe settings
-class ISettingsEngine : public IPlugin
+class CORE_EXPORT ISettingsEngine : public IPlugin
 {
 public:
 	//! Level of the setting to read/write
@@ -16,7 +16,7 @@ public:
 		ProjectLevel = 30
 	};
 
-	virtual ~ISettingsEngine() {}
+	virtual ~ISettingsEngine();
 
 	//! removes a setting from the specified level
 	/*!

@@ -2,13 +2,14 @@
 #define IPLugin_h_
 
 #include <QtPlugin>
+#include "PluginGlobal.h"
 
 class PluginManager;
 
-class IPlugin
+class CORE_EXPORT IPlugin
 {
 public:
-	virtual ~IPlugin() {}
+	virtual ~IPlugin();
 
 	virtual QString name() const = 0;
 	virtual QString description() const = 0;

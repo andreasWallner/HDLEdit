@@ -3,10 +3,10 @@
 
 #include "IPlugin.h"
 
-class IProjectManager : public IPlugin
+class CORE_EXPORT IProjectManager : public IPlugin
 {
 public:
-	virtual ~IProjectManager() {}
+	virtual ~IProjectManager();
 
 };
 

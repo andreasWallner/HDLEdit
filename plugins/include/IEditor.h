@@ -30,13 +30,13 @@ struct HDLInterface // hdl independent
 class CORE_EXPORT IEditor : public IPlugin
 {
 public:
-	virtual ~IEditor() {}
+	virtual ~IEditor();
 
 	virtual void showEditor( const QString& file, OpenMode mode = ReadWrite) = 0;
 
 	// maybe file information class??
 
-	//virtual QString getHDLInterface( HDL hdl); // not here -> write classes for the HDLs and give them the generic and Interface specifications 
+	//virtual QString getHDLInterface( HDL hdl); // not here -> write classes for the HDLs and give them the generic and Interface specifications
 	virtual bool wasFunctionalModified( const QString& oldFile, const QString& newFile) = 0;
 	virtual HDL getHDL( const QString& file) = 0;
 	//virtual HDLInterface getInterface( const QString& file);

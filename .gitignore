@@ -5,6 +5,7 @@ Makefile.Release
 Makefile.Debug
 ui_*
 moc_*
+*~
 *.o
 *.pro.user
 *_resource.rc

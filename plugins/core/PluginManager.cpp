@@ -5,7 +5,6 @@
 #include <QApplication>
 #include <QPluginLoader>
 #include <QLibrary>
-#include <QFile>
 #include <QDir>
 
 #include <QtDebug>
@@ -82,7 +81,7 @@ void PluginManager::registerMimeTypeManager( IMimeTypeManager* manager)
 
 }*/
 
-void PluginManager::registerSettingsEditor( ISettingsEditor* editor)
+void PluginManager::registerSettingsEngine( ISettingsEngine* editor)
 {
 
 }
@@ -149,20 +148,22 @@ QStringList PluginManager::checkDependencies()
 
 void PluginManager::correctLoadOrder()
 {
-	bool madeChanges = false;
+	bool madeChanges;
 
-	do
-	{
+	do {
+		madeChanges = false;
+
 		for( int i = 0; i < m_loadedPlugins.size(); ++i)
 		{
-			QStringList needed = m_loadedPlugins.at(i)->depends();
+			const QStringList& needed = m_loadedPlugins.at(i)->depends();
 			if( needed.size() == 0) continue;
 
 			QStringList covered;
 			for( int j = 0; j < m_loadedPlugins.size(); ++j)
 			{
-				if( needed.indexOf(m_loadedPlugins.at(j)->provides()) != -1
-				 && covered.indexOf(m_loadedPlugins.at(j)->provides()) == -1) // it is needed and not covered
+				// it is needed and not covered
+				if( needed.indexOf( m_loadedPlugins.at(j)->provides()) != -1
+				 && covered.indexOf( m_loadedPlugins.at(j)->provides()) == -1)
 					covered << m_loadedPlugins.at(j)->provides();
 
 				if( covered.size() == needed.size())

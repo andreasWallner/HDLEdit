@@ -53,8 +53,7 @@ void LogWindow::addLogLine( const QString& window, const QString& message)
 
 void LogWindow::clearAllTabs()
 {
-	while(p_ui->tabWidget->count())
-		p_ui->tabWidget->removeTab(0);
+	p_ui->tabWidget->clear();
 	m_tabs.clear();
 	addLogContent("AUX", tr("cleared log content"));
 }

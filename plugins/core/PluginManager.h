@@ -9,7 +9,7 @@ class Logger;
 class IPlugin;
 class IIconFactory;
 class IMimeTypeManager;
-class ISettingsEditor;
+class ISettingsEngine;
 class IProjectManager;
 
 // TODO check for circular deps
@@ -25,7 +25,7 @@ public:
 
 	void registerIconFactory( IIconFactory* factory);
 	void registerMimeTypeManager( IMimeTypeManager* manager);
-	void registerSettingsEditor( ISettingsEditor* editor);
+	void registerSettingsEngine( ISettingsEngine* engine);
 	void registerProjectManager( IProjectManager* manager);
 
 	// static services
@@ -34,7 +34,7 @@ public:
 	// dynamic services
 	IIconFactory* getIconFactory();
 	IMimeTypeManager* getMimeTypeManager();
-	ISettingsEditor* getSettingsEditor();
+	ISettingsEngine* getSettingsEngine();
 	IProjectManager* getProjectManager();
 
 private:
@@ -49,7 +49,7 @@ private:
 	IIconFactory* m_iconFactory;
 	IMimeTypeManager* m_mimeTypeManager;
 	//Logger* m_logger;
-	ISettingsEditor* m_settingsEditor;
+	ISettingsEngine* m_SettingsEngine;
 	IProjectManager* m_projectManager;
 };
 

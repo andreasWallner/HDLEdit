@@ -1,8 +1,8 @@
 #ifndef VHDLEditor_h_
 #define VHDLEditor_h_
 
+#include "IPlugin.h"
 #include <QObject>
-#include "core/IPlugin.h"
 
 class VHDLEditor : public QObject, public IPlugin
 {

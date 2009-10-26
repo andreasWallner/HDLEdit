@@ -1,8 +1,8 @@
 #ifndef ProjectManager_h_
 #define ProjectManager_h_
 
+#include "IProjectManager.h"
 #include <QObject>
-#include "core/IProjectManager.h"
 
 class ProjectManager : public QObject, public IProjectManager
 {

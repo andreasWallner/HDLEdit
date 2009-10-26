@@ -1,8 +1,8 @@
 #ifndef QSettingsEngine_h_
 #define QSettingsEngine_h_
 
+#include "ISettingsEngine.h"
 #include <QObject>
-#include "core/ISettingsEngine.h"
 
 class QSettingsEngine : public QObject, public ISettingsEngine
 {

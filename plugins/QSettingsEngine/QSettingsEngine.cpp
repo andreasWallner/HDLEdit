@@ -1,5 +1,5 @@
 #include "QSettingsEngine.h"
-#include "core/PluginManager.h"
+#include "PluginManager.h"
 
 #include <QString>
 #include <QStringList>

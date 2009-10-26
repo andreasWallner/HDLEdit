@@ -1,6 +1,6 @@
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ./../
+INCLUDEPATH += ../include
 DESTDIR = ../../bin/plugins
 
 TARGET = ProjectManager

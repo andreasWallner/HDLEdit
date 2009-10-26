@@ -33,11 +33,11 @@ int PluginManager::initialize()
 	if( failed.size())
 	{
 		CoreDumpDialog dump;
-		dump.setLabel(tr("Failed loading base services"));
+		dump.setLabel( tr("Failed loading base services"));
 
 		QString msg;
 		msg = "<b>" + tr("Missing services:") + "</b><br /><br />";
-		foreach( QString str, failed)
+		foreach( const QString& str, failed)
 			msg += str + "<br />";
 		dump.setTextBox(msg);
 		dump.exec();
@@ -49,11 +49,11 @@ int PluginManager::initialize()
 	if( failed.size())
 	{
 		CoreDumpDialog dump;
-		dump.setLabel(tr("Program could not be started"));
+		dump.setLabel( tr("Program could not be started"));
 
 		QString msg;
 		msg = "<b>" + tr("Unsatisfied dependencies:") + "</b><br /><br />";
-		foreach( QString str, failed)
+		foreach( const QString& str, failed)
 			msg += str + "<br />";
 		dump.setTextBox(msg);
 		dump.exec();
@@ -68,12 +68,12 @@ int PluginManager::initialize()
 
 void PluginManager::registerIconFactory( IIconFactory* factory)
 {
-	m_iconFactory = factory;
+	p_iconFactory = factory;
 }
 
 void PluginManager::registerMimeTypeManager( IMimeTypeManager* manager)
 {
-
+	p_mimeTypeManager = manager;
 }
 
 /*void PluginManager::registerLogger( ILogger* logger)
@@ -81,29 +81,32 @@ void PluginManager::registerMimeTypeManager( IMimeTypeManager* manager)
 
 }*/
 
-void PluginManager::registerSettingsEngine( ISettingsEngine* editor)
+void PluginManager::registerSettingsEngine( ISettingsEngine* engine)
 {
-
+	p_settingsEngine = engine;
 }
 
 void PluginManager::registerProjectManager( IProjectManager* manager)
 {
-
+	p_projectManager = manager;
 }
 
 void PluginManager::loadLibraries()
 {
-	QDir pluginDir(qApp->applicationDirPath());
+	QDir pluginDir( qApp->applicationDirPath());
 	pluginDir.cd("plugins");
+	const QStringList& pluginList = pluginDir.entryList(QDir::Files | QDir::Executable | QDir::NoSymLinks);
 
-	foreach( QString fileName, pluginDir.entryList(QDir::Files))
+	foreach( const QString& fileName, pluginList)
 	{
-		QPluginLoader pluginLoader(pluginDir.absoluteFilePath(fileName));
-		QObject *plugin = pluginLoader.instance();
-		if (plugin)
+		QPluginLoader pluginLoader( pluginDir.absoluteFilePath(fileName));
+		QObject* plugin = pluginLoader.instance();
+
+		if(plugin)
 		{
-			IPlugin* casted = qobject_cast<IPlugin *>(plugin);
+			IPlugin* casted = qobject_cast<IPlugin*>(plugin);
 			if(casted) m_loadedPlugins << casted;
+			else qDebug() << "error loading plugin from: " << fileName;
 		}
 	}
 }
@@ -115,7 +118,7 @@ QStringList PluginManager::checkBaseServices()
 		needed << QString(baseServices[i]);
 
 	QStringList provided;
-	foreach( IPlugin* plugin, m_loadedPlugins)
+	foreach( const IPlugin* plugin, m_loadedPlugins)
 		provided << plugin->provides();
 
 	QStringList notProvided;
@@ -130,11 +133,11 @@ QStringList PluginManager::checkBaseServices()
 QStringList PluginManager::checkDependencies()
 {
 	QStringList provided;
-	foreach( IPlugin* plugin, m_loadedPlugins)
+	foreach( const IPlugin* plugin, m_loadedPlugins)
 		provided << plugin->provides();
 
 	QStringList missing;
-	foreach( IPlugin* plugin, m_loadedPlugins)
+	foreach( const IPlugin* plugin, m_loadedPlugins)
 	{
 		QStringList needs = plugin->depends();
 		foreach( const QString& need, needs)

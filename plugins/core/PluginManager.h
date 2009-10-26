@@ -23,19 +23,19 @@ public:
 
 	int initialize();
 
-	void registerIconFactory( IIconFactory* factory);
-	void registerMimeTypeManager( IMimeTypeManager* manager);
-	void registerSettingsEngine( ISettingsEngine* engine);
-	void registerProjectManager( IProjectManager* manager);
+	void registerIconFactory( IIconFactory*);
+	void registerMimeTypeManager( IMimeTypeManager*);
+	void registerSettingsEngine( ISettingsEngine*);
+	void registerProjectManager( IProjectManager*);
 
 	// static services
 //	Logger* getLogger();
 
 	// dynamic services
-	IIconFactory* getIconFactory();
-	IMimeTypeManager* getMimeTypeManager();
-	ISettingsEngine* getSettingsEngine();
-	IProjectManager* getProjectManager();
+	IIconFactory* getIconFactory() { return p_iconFactory; }
+	IMimeTypeManager* getMimeTypeManager() { return p_mimeTypeManager; }
+	ISettingsEngine* getSettingsEngine() { return p_settingsEngine; }
+	IProjectManager* getProjectManager() { return p_projectManager; }
 
 private:
 	void loadLibraries();
@@ -46,11 +46,11 @@ private:
 
 	QList<IPlugin*> m_loadedPlugins;
 
-	IIconFactory* m_iconFactory;
-	IMimeTypeManager* m_mimeTypeManager;
-	//Logger* m_logger;
-	ISettingsEngine* m_SettingsEngine;
-	IProjectManager* m_projectManager;
+	IIconFactory* p_iconFactory;
+	IMimeTypeManager* p_mimeTypeManager;
+	//Logger* p_logger;
+	ISettingsEngine* p_settingsEngine;
+	IProjectManager* p_projectManager;
 };
 
 #endif // PluginManager_h_

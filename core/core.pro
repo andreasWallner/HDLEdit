@@ -19,8 +19,9 @@ HEADERS += \
 SOURCES += \
 	../interfaces/IPlugin.cpp \
 	../interfaces/IEditor.cpp \
+	../interfaces/ISourceControl.cpp \
 	../interfaces/IProjectManager.cpp \
-	../interfaces/ISettingsEngine.cpp \
+	../interfaces/ISettingsEngine.cpp
 
 SOURCES += \
 	PluginManager.cpp \

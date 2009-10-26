@@ -1,5 +1,5 @@
-#ifndef PluginGlobal_h_
-#define PluginGlobal_h_
+#ifndef export_h_
+#define export_h_
 
 #include <QtCore/qglobal.h>
 
@@ -9,4 +9,4 @@
 	#define CORE_EXPORT Q_DECL_IMPORT
 #endif
 
-#endif // PluginGlobal_h_
+#endif // export_h_

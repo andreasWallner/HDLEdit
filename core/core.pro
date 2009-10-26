@@ -1,7 +1,8 @@
 TEMPLATE = lib
 TARGET = core
 DESTDIR = ../../bin/plugins
-INCLUDEPATH += ../include
+INCLUDEPATH += ../.
+INCLUDEPATH += ../interfaces
 DEFINES = CORE_LIBRARY
 
 HEADERS += \
@@ -14,10 +15,12 @@ HEADERS += \
 	dialogs/DefaultEditorDialog.h
 
 SOURCES += \
-	IPlugin.cpp \
-	IEditor.cpp \
-	IProjectManager.cpp \
-	ISettingsEngine.cpp \
+	../interfaces/IPlugin.cpp \
+	../interfaces/IEditor.cpp \
+	../interfaces/IProjectManager.cpp \
+	../interfaces/ISettingsEngine.cpp
+
+SOURCES += \
 	PluginManager.cpp \
 	IconProvider.cpp \
 	MimeDatabase.cpp \

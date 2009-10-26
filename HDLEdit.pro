@@ -1,3 +1,6 @@
 CONFIG += order
 TEMPLATE = subdirs
-SUBDIRS = plugins app
+SUBDIRS = \
+	core \
+	plugins \
+	app

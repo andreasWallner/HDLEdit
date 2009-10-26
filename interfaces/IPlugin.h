@@ -1,8 +1,8 @@
 #ifndef IPlugin_h_
 #define IPLugin_h_
 
+#include "../export.h"
 #include <QtPlugin>
-#include "PluginGlobal.h"
 
 class PluginManager;
 

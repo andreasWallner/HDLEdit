@@ -1,4 +1,4 @@
-#include "plugins/core/PluginManager.h"
+#include "core/PluginManager.h"
 
 #include <QApplication>
 #include <QtDebug>

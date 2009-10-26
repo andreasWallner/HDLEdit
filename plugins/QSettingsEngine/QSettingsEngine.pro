@@ -1,7 +1,7 @@
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../include
-INCLUDEPATH += ../core
+INCLUDEPATH += ../../interfaces
+INCLUDEPATH += ../../core
 DESTDIR = ../../bin/plugins
 
 TARGET = QSettingsEngine

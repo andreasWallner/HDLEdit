@@ -1,5 +1,6 @@
 TEMPLATE = subdirs
-SUBDIRS = core \
+INCLUDEPATH += ../interfaces
+SUBDIRS = \
 	ProjectManager \
 	VHDLEditor \
 	QSettingsEngine

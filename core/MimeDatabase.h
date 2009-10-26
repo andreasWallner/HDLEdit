@@ -1,7 +1,7 @@
 #ifndef core_MimeDatabase_h_
 #define core_MimeDatabase_h_
 
-#include "PluginGlobal.h"
+#include "export.h"
 
 #include <QMultiMap>
 #include <QString>

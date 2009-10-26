@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = HDLEdit
 DESTDIR = ./../bin
-INCLUDEPATH += ../plugins
+INCLUDEPATH += ../.
 CONFIG += qt \
 	warn_on \
 	release

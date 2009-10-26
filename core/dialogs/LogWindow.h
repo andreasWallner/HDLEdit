@@ -1,7 +1,7 @@
 #ifndef core_LowWindow_h_
 #define core_LowWindow_h_
 
-#include "PluginGlobal.h"
+#include "export.h"
 
 #include <QtGui/QDialog>
 #include <QString>

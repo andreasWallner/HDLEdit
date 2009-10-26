@@ -1,7 +1,7 @@
 #ifndef core_IconProvider_h_
 #define core_IconProvider_h_
 
-#include "PluginGlobal.h"
+#include "export.h"
 
 class QIcon;
 

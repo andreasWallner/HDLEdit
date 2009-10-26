@@ -1,8 +1,7 @@
 #ifndef PluginManager_h_
 #define PluginManager_h_
 
-#include "PluginGlobal.h"
-
+#include "../export.h"
 #include <QObject>
 
 class Logger;

@@ -12,12 +12,12 @@ class ProjectManager : public QObject, public IProjectManager
 public:
 	ProjectManager();
 
-	virtual QString name() const;
-	virtual QString description() const;
-	virtual QString version() const;
-	virtual QString provides() const;
-	virtual QStringList depends() const;
-	virtual void registerPlugin( PluginManager* manager);
+	QString name() const;
+	QString description() const;
+	QString version() const;
+	QString provides() const;
+	QStringList depends() const;
+	void registerPlugin( PluginManager* manager);
 };
 
 #endif // ProjectManager_h_

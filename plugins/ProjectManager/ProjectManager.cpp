@@ -30,7 +30,7 @@ QString ProjectManager::provides() const
 QStringList ProjectManager::depends() const
 {
 	QStringList list;
-	list << "base/settingseditor";
+	list << "base/settingsengine";
 	return list;
 }
 

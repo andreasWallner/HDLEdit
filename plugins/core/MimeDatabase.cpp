@@ -5,13 +5,17 @@
 #include <stdexcept>
 
 // TODO save preferred editor
+// TODO simply ignore same mime/editor tuples?
 
 MimeDatabase::MimeDatabase()
 {
 }
 
-void MimeDatabase::registerEditor( const QString& mimeType, IEditor* editor)
+void MimeDatabase::registerEditor( IEditor* editor, const QString& mimeType)
 {
+	if(!editor)
+		throw std::logic_error("MimeDatabase::registerEditor: tried to register NULL pointer as editor");
+
 	const QList<MimeEntry>& entrys = m_mimetypes.values(mimeType);
 	foreach( const MimeEntry& entry, entrys)
 	{
@@ -21,13 +25,28 @@ void MimeDatabase::registerEditor( const QString& mimeType, IEditor* editor)
 
 	MimeEntry newEntry;
 	newEntry.preferred = false;
-	newEntry.name = editor->name();
 	newEntry.editor = editor;
-
 	m_mimetypes.insert( mimeType, newEntry);
 }
 
-IEditor* MimeDatabase::getEditor( const QString& mimeType)
+bool MimeDatabase::unregisterEditor( const IEditor* editor)
+{
+	bool found = false;
+	QMultiMap<QString, MimeEntry>::iterator it, end;
+
+	for( it = m_mimetypes.begin(), end = m_mimetypes.end(); it != end;)
+	{
+		if( it->editor != editor) ++it;
+		else
+		{
+			m_mimetypes.erase(it++);
+			found = true;
+		}
+	}
+	return found;
+}
+
+IEditor* MimeDatabase::getEditor( const QString& mimeType) const
 {
 	const QList<MimeEntry>& entrys = m_mimetypes.values(mimeType);
 
@@ -39,7 +58,7 @@ IEditor* MimeDatabase::getEditor( const QString& mimeType)
 	return 0;
 }
 
-IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, bool useDefault, Reason& reason)
+IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, Reason& reason, bool useDefault /* = true */)
 {
 	const QList<MimeEntry>& entrys = m_mimetypes.values(mimeType);
 
@@ -63,7 +82,7 @@ IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, bool useDe
 
 	foreach( const MimeEntry& entry, entrys)
 	{
-		dialog.addEditor(entry.name);
+		dialog.addEditor( entry.editor->name());
 	}
 
 	int ret = dialog.exec();
@@ -72,7 +91,7 @@ IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, bool useDe
 		const QString& name = dialog.getEditor();
 		foreach( const MimeEntry& entry, entrys)
 		{
-			if( entry.name == name)
+			if( entry.editor->name() == name)
 				return entry.editor;
 		}
 	}

@@ -15,24 +15,25 @@ public:
 	{
 		NotFound,
 		UserCancelled,
-		OK
+		Ok
 	};
 
 	MimeDatabase();
 
-	void registerEditor( const QString& mimeType, IEditor* editor);
-	IEditor* getEditor( const QString& mimeType);
-	IEditor* getEditorInteractive( const QString& mimeType, bool useDefault, Reason& reason);
+	void registerEditor( IEditor* editor, const QString& mimeType);
+	bool unregisterEditor( const IEditor* editor);
+
+	IEditor* getEditor( const QString& mimeType) const;
+	IEditor* getEditorInteractive( const QString& mimeType, Reason& reason, bool useDefault = true);
 
 private:
 	struct MimeEntry
 	{
 		bool preferred;
-		QString name;
 		IEditor* editor;
 	};
 
-	QMultiMap< QString, MimeEntry> m_mimetypes;
+	QMultiMap<QString, MimeEntry> m_mimetypes;
 };
 
 #endif // core_MimeDatabase_h_

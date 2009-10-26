@@ -1,6 +1,6 @@
 TEMPLATE = lib
 TARGET = core
-DESTDIR = ../../bin/plugins
+DESTDIR = ../bin/plugins
 INCLUDEPATH += ../.
 INCLUDEPATH += ../interfaces
 DEFINES = CORE_LIBRARY

@@ -1,7 +1,7 @@
 #ifndef core_LowWindow_h_
 #define core_LowWindow_h_
 
-#include "./../PluginGlobal.h"
+#include "PluginGlobal.h"
 
 #include <QtGui/QDialog>
 #include <QString>
@@ -30,7 +30,7 @@ private slots:
 	void changeEvent( QEvent* e);
 
 private:
-	QMap< QString, QTextEdit*> m_tabs;
+	QMap<QString, QTextEdit*> m_tabs;
 	Ui::LogWindow* p_ui;
 };
 

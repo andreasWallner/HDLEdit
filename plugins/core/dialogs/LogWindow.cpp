@@ -31,7 +31,7 @@ void LogWindow::changeEvent( QEvent* e)
 
 void LogWindow::addLogContent( const QString& window, const QString& message)
 {
-	QMap< QString, QTextEdit*>::iterator tab = m_tabs.find(window);
+	QMap<QString, QTextEdit*>::iterator tab = m_tabs.find(window);
 	if( tab == m_tabs.end())
 	{
 		QTextEdit* textEdit = new QTextEdit(this);
@@ -55,14 +55,14 @@ void LogWindow::clearAllTabs()
 {
 	p_ui->tabWidget->clear();
 	m_tabs.clear();
-	addLogContent("AUX", tr("cleared log content"));
+	addLogContent( "AUX", tr("cleared log content"));
 }
 
 void LogWindow::on_tabWidget_tabCloseRequested( int index)
 {
 	if( p_ui->tabWidget->tabText(index) != "AUX")
 	{
-		m_tabs.remove(p_ui->tabWidget->tabText(index));
+		m_tabs.remove( p_ui->tabWidget->tabText(index));
 		QWidget* widget = p_ui->tabWidget->widget(index);
 		p_ui->tabWidget->removeTab(index);
 		delete widget;

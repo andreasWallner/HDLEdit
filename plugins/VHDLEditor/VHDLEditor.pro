@@ -1,7 +1,7 @@
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../interfaces
 DESTDIR = ../../bin/plugins
+INCLUDEPATH += ../../interfaces
 
 TARGET = TextEdit
 HEADERS += VHDLEditor.h

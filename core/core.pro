@@ -3,11 +3,13 @@ TARGET = core
 DESTDIR = ../bin/plugins
 INCLUDEPATH += ../.
 INCLUDEPATH += ../interfaces
-DEFINES = CORE_LIBRARY
+DEFINES += CORE_LIBRARY
+
+HEADERS += \
+	../interfaces/PluginManager.h
 
 HEADERS += \
 	IconProvider.h \
-	PluginManager.h \
 	MimeDatabase.h \
 	SettingsEditor.h \
 	dialogs/LogWindow.h \
@@ -18,7 +20,7 @@ SOURCES += \
 	../interfaces/IPlugin.cpp \
 	../interfaces/IEditor.cpp \
 	../interfaces/IProjectManager.cpp \
-	../interfaces/ISettingsEngine.cpp
+	../interfaces/ISettingsEngine.cpp \
 
 SOURCES += \
 	PluginManager.cpp \

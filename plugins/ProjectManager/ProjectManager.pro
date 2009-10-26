@@ -1,7 +1,7 @@
 TEMPLATE = lib
 CONFIG += plugin
-INCLUDEPATH += ../../interfaces
 DESTDIR = ../../bin/plugins
+INCLUDEPATH += ../../interfaces
 
 TARGET = ProjectManager
 HEADERS += ProjectManager.h

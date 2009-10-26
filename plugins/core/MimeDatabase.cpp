@@ -11,6 +11,10 @@ MimeDatabase::MimeDatabase()
 {
 }
 
+MimeDatabase::~MimeDatabase()
+{
+}
+
 void MimeDatabase::registerEditor( IEditor* editor, const QString& mimeType)
 {
 	if(!editor)
@@ -29,7 +33,7 @@ void MimeDatabase::registerEditor( IEditor* editor, const QString& mimeType)
 	m_mimetypes.insert( mimeType, newEntry);
 }
 
-bool MimeDatabase::unregisterEditor( const IEditor* editor)
+bool MimeDatabase::removeEditor( const IEditor* editor)
 {
 	bool found = false;
 	QMultiMap<QString, MimeEntry>::iterator it, end;
@@ -92,7 +96,10 @@ IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, Reason& re
 		foreach( const MimeEntry& entry, entrys)
 		{
 			if( entry.editor->name() == name)
+			{
+				reason = Ok;
 				return entry.editor;
+			}
 		}
 	}
 

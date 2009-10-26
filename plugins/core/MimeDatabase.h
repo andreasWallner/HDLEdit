@@ -19,9 +19,10 @@ public:
 	};
 
 	MimeDatabase();
+	~MimeDatabase();
 
 	void registerEditor( IEditor* editor, const QString& mimeType);
-	bool unregisterEditor( const IEditor* editor);
+	bool removeEditor( const IEditor* editor);
 
 	IEditor* getEditor( const QString& mimeType) const;
 	IEditor* getEditorInteractive( const QString& mimeType, Reason& reason, bool useDefault = true);

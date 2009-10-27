@@ -15,7 +15,7 @@ DefaultEditorDialog::~DefaultEditorDialog()
 
 void DefaultEditorDialog::setMimeType( const QString& name)
 {
-	const QString& text = tr("Please choose your default Editor for %0 Files").arg(name);
+	const QString& text = tr("Please choose your default editor for %0 files").arg(name);
 	p_ui->introTextLabel->setText(text);
 }
 

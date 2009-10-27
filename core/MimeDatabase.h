@@ -11,7 +11,7 @@ class IEditor;
 class MimeDatabase
 {
 public:
-	enum Reason
+	enum Status
 	{
 		NotFound,
 		UserCancelled,
@@ -25,7 +25,7 @@ public:
 	bool removeEditor( const IEditor* editor);
 
 	IEditor* getEditor( const QString& mimeType) const;
-	IEditor* getEditorInteractive( const QString& mimeType, Reason& reason, bool useDefault = true);
+	IEditor* getEditorInteractive( const QString& mimeType, Status& status, bool useDefault = true);
 
 private:
 	struct MimeEntry

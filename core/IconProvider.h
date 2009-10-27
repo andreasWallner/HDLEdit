@@ -9,6 +9,8 @@ class CORE_EXPORT IconProvider
 {
 public:
 	IconProvider();
+	~IconProvider();
+
 	QIcon getIcon( const QString& identifier);
 };
 

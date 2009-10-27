@@ -5,7 +5,6 @@
 #include <stdexcept>
 
 // TODO save preferred editor
-// TODO simply ignore same mime/editor tuples?
 
 MimeDatabase::MimeDatabase()
 {
@@ -18,7 +17,7 @@ MimeDatabase::~MimeDatabase()
 void MimeDatabase::registerEditor( IEditor* editor, const QString& mimeType)
 {
 	if(!editor)
-		throw std::logic_error("MimeDatabase::registerEditor: tried to register NULL pointer as editor");
+		throw std::invalid_argument("MimeDatabase::registerEditor: tried to register NULL pointer as editor");
 
 	const QList<MimeEntry>& entrys = m_mimetypes.values(mimeType);
 	foreach( const MimeEntry& entry, entrys)
@@ -62,13 +61,13 @@ IEditor* MimeDatabase::getEditor( const QString& mimeType) const
 	return 0;
 }
 
-IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, Reason& reason, bool useDefault /* = true */)
+IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, Status& status, bool useDefault /* = true */)
 {
 	const QList<MimeEntry>& entrys = m_mimetypes.values(mimeType);
 
 	if( entrys.size() == 0)
 	{
-		reason = NotFound;
+		status = NotFound;
 		return 0;
 	}
 
@@ -97,12 +96,12 @@ IEditor* MimeDatabase::getEditorInteractive( const QString& mimeType, Reason& re
 		{
 			if( entry.editor->name() == name)
 			{
-				reason = Ok;
+				status = Ok;
 				return entry.editor;
 			}
 		}
 	}
 
-	reason = UserCancelled;
+	status = UserCancelled;
 	return 0;
 }

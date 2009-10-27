@@ -31,10 +31,10 @@ public:
 //	Logger* getLogger();
 
 	// dynamic services
-	IIconFactory* getIconFactory() { return p_iconFactory; }
-	IMimeTypeManager* getMimeTypeManager() { return p_mimeTypeManager; }
-	ISettingsEngine* getSettingsEngine() { return p_settingsEngine; }
-	IProjectManager* getProjectManager() { return p_projectManager; }
+	IIconFactory* getIconFactory();
+	IMimeTypeManager* getMimeTypeManager();
+	ISettingsEngine* getSettingsEngine();
+	IProjectManager* getProjectManager();
 
 private:
 	void loadLibraries();

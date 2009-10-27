@@ -3,3 +3,7 @@
 IconProvider::IconProvider()
 {
 }
+
+IconProvider::~IconProvider()
+{
+}

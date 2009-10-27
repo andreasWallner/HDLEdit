@@ -5,12 +5,12 @@ CoreDumpDialog::CoreDumpDialog( QWidget* parent)
 : QDialog(parent)
 , p_ui(new Ui::CoreDumpDialog)
 {
-    p_ui->setupUi(this);
+	p_ui->setupUi(this);
 }
 
 CoreDumpDialog::~CoreDumpDialog()
 {
-    delete p_ui;
+	delete p_ui;
 }
 
 void CoreDumpDialog::setLabel( const QString& text)

@@ -91,6 +91,26 @@ void PluginManager::registerProjectManager( IProjectManager* manager)
 	p_projectManager = manager;
 }
 
+IIconFactory* PluginManager::getIconFactory()
+{
+	return p_iconFactory;
+}
+
+IMimeTypeManager* PluginManager::getMimeTypeManager()
+{
+	return p_mimeTypeManager;
+}
+
+ISettingsEngine* PluginManager::getSettingsEngine()
+{
+	return p_settingsEngine;
+}
+
+IProjectManager* PluginManager::getProjectManager()
+{
+	return p_projectManager;
+}
+
 void PluginManager::loadLibraries()
 {
 	QDir pluginDir( qApp->applicationDirPath());

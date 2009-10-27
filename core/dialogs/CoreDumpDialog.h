@@ -7,8 +7,8 @@ namespace Ui { class CoreDumpDialog; }
 
 class CoreDumpDialog : public QDialog
 {
-    Q_OBJECT
-    Q_DISABLE_COPY(CoreDumpDialog)
+	Q_OBJECT
+	Q_DISABLE_COPY(CoreDumpDialog)
 
 public:
 	CoreDumpDialog( QWidget* parent = 0);

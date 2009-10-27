@@ -50,7 +50,7 @@ public:
 	- let modelsim simulater compile
 	- simulate in modelsim
 
-	private pseudo-variables, provides by PluginManager:
+	private pseudo-variables, provided by PluginManager:
 	p_settingsEngine;
 	p_mimeDatabase;
 	p_iconProvider;

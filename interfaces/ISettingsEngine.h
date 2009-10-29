@@ -3,6 +3,17 @@
 
 #include "IPlugin.h"
 
+// FIXME
+/*
+This class can not work.
+How should the settingsengine know how to write project files AND system settings?
+
+My idea:
+- keep settingsengine, but only for user and system settingsengine
+- write unrelated implementation for project file access (ProjectFileEngine?)
+- create (non-plugin) interface that combines a settingsengine and project settings
+*/
+
 //! SettingsEngines load/safe settings
 class CORE_EXPORT ISettingsEngine : public IPlugin
 {
@@ -13,7 +24,7 @@ public:
 		DefaultLevel = 0,
 		ApplicationLevel = 10,
 		UserLevel = 20,
-		ProjectLevel = 30
+		//ProjectLevel = 30
 	};
 
 	virtual ~ISettingsEngine();

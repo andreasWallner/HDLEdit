@@ -3,11 +3,13 @@
 
 #include <QString>
 #include <QStringList>
-#include <QVariant>
+#include <QSettings>
 
 QSettingsEngine::QSettingsEngine()
-{
-}
+{}
+
+QSettingsEngine::~QSettingsEngine()
+{}
 
 QString QSettingsEngine::name() const
 {

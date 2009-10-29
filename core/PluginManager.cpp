@@ -22,6 +22,9 @@ PluginManager::~PluginManager()
 {
 	foreach( IPlugin* plugin, m_loadedPlugins)
 		delete plugin;
+
+	foreach( QPluginLoader* loader, m_pluginLoaders)
+		delete loader;
 }
 
 int PluginManager::initialize()
@@ -119,14 +122,24 @@ void PluginManager::loadLibraries()
 
 	foreach( const QString& fileName, pluginList)
 	{
-		QPluginLoader pluginLoader( pluginDir.absoluteFilePath(fileName));
-		QObject* plugin = pluginLoader.instance();
+		QPluginLoader* loader = new QPluginLoader( pluginDir.absoluteFilePath(fileName));
+		QObject* plugin = loader->instance();
 
 		if(plugin)
 		{
+			m_pluginLoaders << loader;
 			IPlugin* casted = qobject_cast<IPlugin*>(plugin);
 			if(casted) m_loadedPlugins << casted;
-			else qDebug() << "error loading plugin from: " << fileName;
+			else
+			{
+				delete plugin;
+				qDebug() << "error loading doing qobject_cast: " << fileName;
+			}
+		}
+		else
+		{
+			delete loader;
+			qDebug() << "error loading plugin from: " << fileName;
 		}
 	}
 }

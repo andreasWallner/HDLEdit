@@ -2,6 +2,7 @@
 #define QSettingsEngine_h_
 
 #include "ISettingsEngine.h"
+
 #include <QObject>
 
 class QSettingsEngine : public QObject, public ISettingsEngine
@@ -11,6 +12,7 @@ class QSettingsEngine : public QObject, public ISettingsEngine
 
 public:
 	QSettingsEngine();
+	~QSettingsEngine();
 
 	QString name() const;
 	QString description() const;

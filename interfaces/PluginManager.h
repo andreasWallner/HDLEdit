@@ -10,6 +10,7 @@ class IIconFactory;
 class IMimeTypeManager;
 class ISettingsEngine;
 class IProjectManager;
+class QPluginLoader;
 
 // TODO check for circular deps
 // TODO intelligently seach plugin folder
@@ -43,6 +44,7 @@ private:
 	void correctLoadOrder();
 	void registerPlugins();
 
+	QList<QPluginLoader*> m_pluginLoaders;
 	QList<IPlugin*> m_loadedPlugins;
 
 	IIconFactory* p_iconFactory;
